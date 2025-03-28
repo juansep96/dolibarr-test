@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innova Challenge - Sepulveda Juan Pablo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            max-width: 1200px;
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+            margin-top: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 0.9em;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: #3498db;
+            color: white;
+            text-transform: uppercase;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .highlight {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin: 25px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .summary {
+            background-color: #e8f8f5;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Planificación de implementación -> Sistema de Gestión para Proveedor Médico</h2>
+
+<div class="summary">
+    <ul>
+        <li><strong>Opción 1:</strong> Dolibarr (Dev. onboard) - 135 horas</li>
+        <li><strong>Opción 2:</strong> Dolibarr (Dev. onboarding) - 135 horas</li>
+        <li><strong>Opción 3:</strong> Python/Odoo - 176 horas</li>
+    </ul>
+</div>
+
+<h2>1. Dev. Onboard</h2>
+
+<table>
+    <tr>
+        <th>Descripción de la Tarea</th>
+        <th>Tipo</th>
+        <th>Módulo Dolibarr</th>
+        <th>Submódulo/Funcionalidad</th>
+        <th>Horas</th>
+        <th>Comentarios</th>
+    </tr>
+    <tr>
+        <td>Archivo de Clientes/Distribuidores</td>
+        <td>INT</td>
+        <td>CRM (Terceros)</td>
+        <td>Gestión de clientes y contactos</td>
+        <td>6</td>
+        <td>Configuración estándar con campos personalizados</td>
+    </tr>
+    <tr>
+        <td>Archivo de Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Proveedores)</td>
+        <td>Registro y gestión de proveedores</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivos de Rubros</td>
+        <td>IMP</td>
+        <td>PM (Etiquetas/Categorías)</td>
+        <td>Clasificación de productos/proveedores</td>
+        <td>2</td>
+        <td>Multinivel</td>
+    </tr>
+    <tr>
+        <td>Archivo de Marcas de Productos</td>
+        <td>IMP</td>
+        <td>PM (Productos)</td>
+        <td>Gestión de marcas</td>
+        <td>2</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivo de Depósitos Stock</td>
+        <td>IMP</td>
+        <td>PM (Stocks de productos)</td>
+        <td>Gestión de inventario y almacenes</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivo de Productos</td>
+        <td>INT</td>
+        <td>PM (Productos)</td>
+        <td>Catálogo de productos y variantes</td>
+        <td>12</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Ingreso Comprobantes Compras a Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Facturas y abonos)</td>
+        <td>Facturación de proveedores</td>
+        <td>7</td>
+        <td>Requiere personalizacion de campos</td>
+    </tr>
+    <tr>
+        <td>Libros de I.V.A. Compras</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Reportes fiscales y libros IVA</td>
+        <td>8</td>
+        <td>Validación del area contable</td>
+    </tr>
+    <tr>
+        <td>Generación archivo txt Compras (Libro IVA Digital)</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Exportación de datos fiscales</td>
+        <td>8</td>
+        <td>Validación del area contable</td>
+    </tr>
+    <tr>
+        <td>Órdenes de Compras a Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Presupuestos de proveedor)</td>
+        <td>Solicitud y gestión de órdenes de compra</td>
+        <td>6</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Recepción Componentes</td>
+        <td>IMP</td>
+        <td>VRM (Recepciones)</td>
+        <td>Control de recepciones</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Devolución Componentes</td>
+        <td>IMP</td>
+        <td>VRM (Recepciones)</td>
+        <td>Gestión de devoluciones</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Entrega Materiales</td>
+        <td>IMP</td>
+        <td>PM (Stocks de productos)</td>
+        <td>Movimientos de inventario</td>
+        <td>4</td>
+        <td>Vinculación con órdenes de trabajo</td>
+    </tr>
+    <tr>
+        <td>Presupuestos a Clientes</td>
+        <td>LISTO</td>
+        <td>CRM (Presupuestos)</td>
+        <td>Creación de presupuestos</td>
+        <td>2</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Carga de Pedidos</td>
+        <td>LISTO</td>
+        <td>CRM (Pedidos)</td>
+        <td>Gestión de pedidos de venta</td>
+        <td>3</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>R.M.A. (Reparación Mercadería Averiada)</td>
+        <td>LISTO</td>
+        <td>CRM (Tickets)</td>
+        <td>Gestión de garantías/reparaciones</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Remitos</td>
+        <td>IMP</td>
+        <td>CRM (Expediciones)</td>
+        <td>Generación de remitos</td>
+        <td>6</td>
+        <td>Requiere personalizacion de campos</td>
+    </tr>
+    <tr>
+        <td>Facturación Afip por Webservice</td>
+        <td>IMP</td>
+        <td>Contabilidad (Facturas y abonos)</td>
+        <td>Emisión de facturas electrónicas</td>
+        <td>12</td>
+        <td>Prioridad alta - integración compleja</td>
+    </tr>
+    <tr>
+        <td>Generación archivo txt Ventas (Libro IVA Digital)</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Reportes fiscales</td>
+        <td>8</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Libros de I.V.A. Ventas</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Registro de ventas fiscales</td>
+        <td>8</td>
+        <td>Validación del area contable</td>
+    </tr>
+    <tr>
+        <td>Movimientos de Caja (Efectivo)</td>
+        <td>IMP</td>
+        <td>Contabilidad (Bancos y Caja)</td>
+        <td>Registro de transacciones en efectivo</td>
+        <td>3</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Movimientos Bancarios</td>
+        <td>IMP</td>
+        <td>Contabilidad (Bancos y Caja)</td>
+        <td>Conciliación bancaria</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pago a Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Pago por transferencia bancaria)</td>
+        <td>Gestión de pagos a proveedores</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cartera Cheques</td>
+        <td>IMP</td>
+        <td>Contabilidad (Bancos y Caja)</td>
+        <td>Trazabilidad de cheques</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Movimientos de Stock</td>
+        <td>IMP</td>
+        <td>PM (Stocks de productos)</td>
+        <td>Control de inventario entre depósitos</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="highlight">
+    <p><strong>Total horas:</strong> 135</p>
+    <p><strong>Enfoque:</strong> Implementación modular priorizando procesos fiscales y de inventario por su complejidad.</p>
+</div>
+
+<h2>2. Dev. Onboarding</h2>
+
+<table>
+    <tr>
+        <th>Descripción de la Tarea</th>
+        <th>Tipo</th>
+        <th>Módulo Dolibarr</th>
+        <th>Submódulo/Funcionalidad</th>
+        <th>Horas</th>
+        <th>Comentarios</th>
+    </tr>
+    <tr>
+        <td>Archivo de Clientes/Distribuidores</td>
+        <td>INT</td>
+        <td>CRM (Terceros)</td>
+        <td>Gestión de clientes y contactos</td>
+        <td>10</td>
+        <td>Incluye tiempo de aprendizaje</td>
+    </tr>
+    <tr>
+        <td>Archivo de Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Proveedores)</td>
+        <td>Registro y gestión de proveedores</td>
+        <td>7</td>
+        <td>Configuración guiada</td>
+    </tr>
+    <tr>
+        <td>Archivos de Rubros</td>
+        <td>IMP</td>
+        <td>PM (Etiquetas/Categorías)</td>
+        <td>Clasificación de productos/proveedores</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivo de Marcas de Productos</td>
+        <td>IMP</td>
+        <td>PM (Productos)</td>
+        <td>Gestión de marcas</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivo de Depósitos Stock</td>
+        <td>IMP</td>
+        <td>PM (Stocks de productos)</td>
+        <td>Gestión de inventario y almacenes</td>
+        <td>10</td>
+        <td></td>    
+    </tr>
+    <tr>
+        <td>Archivo de Productos</td>
+        <td>INT</td>
+        <td>PM (Productos)</td>
+        <td>Catálogo de productos y variantes</td>
+        <td>14</td>
+        <td></td>    
+    </tr>
+    <tr>
+        <td>Ingreso Comprobantes Compras a Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Facturas y abonos)</td>
+        <td>Facturación de proveedores</td>
+        <td>8</td>
+        <td></td>    
+    </tr>
+    <tr>
+        <td>Libros de I.V.A. Compras</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Reportes fiscales y libros IVA</td>
+        <td>8</td>
+        <td></td>   
+    </tr>
+    <tr>
+        <td>Generación archivo txt Compras (Libro IVA Digital)</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Exportación de datos fiscales</td>
+        <td>8</td>
+        <td></td>    
+    </tr>
+    <tr>
+        <td>Órdenes de Compras a Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Presupuestos de proveedor)</td>
+        <td>Solicitud y gestión de órdenes de compra</td>
+        <td>7</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Recepción Componentes</td>
+        <td>IMP</td>
+        <td>VRM (Recepciones)</td>
+        <td>Control de recepciones</td>
+        <td>6</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Devolución Componentes</td>
+        <td>IMP</td>
+        <td>VRM (Recepciones)</td>
+        <td>Gestión de devoluciones</td>
+        <td>6</td>
+        <td>Configuración guiada</td>
+    </tr>
+    <tr>
+        <td>Entrega Materiales</td>
+        <td>IMP</td>
+        <td>PM (Stocks de productos)</td>
+        <td>Movimientos de inventario</td>
+        <td>6</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Presupuestos a Clientes</td>
+        <td>LISTO</td>
+        <td>CRM (Presupuestos)</td>
+        <td>Creación de presupuestos</td>
+        <td>3</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Carga de Pedidos</td>
+        <td>LISTO</td>
+        <td>CRM (Pedidos)</td>
+        <td>Gestión de pedidos de venta</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>R.M.A. (Reparación Mercadería Averiada)</td>
+        <td>LISTO</td>
+        <td>CRM (Tickets)</td>
+        <td>Gestión de garantías/reparaciones</td>
+        <td>7</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Remitos</td>
+        <td>IMP</td>
+        <td>CRM (Expediciones)</td>
+        <td>Generación de remitos</td>
+        <td>8</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Facturación Afip por Webservice</td>
+        <td>IMP</td>
+        <td>Contabilidad (Facturas y abonos)</td>
+        <td>Emisión de facturas electrónicas</td>
+        <td>12</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Generación archivo txt Ventas (Libro IVA Digital)</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Reportes fiscales</td>
+        <td>8</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Libros de I.V.A. Ventas</td>
+        <td>IMP</td>
+        <td>Contabilidad (doble partida)</td>
+        <td>Registro de ventas fiscales</td>
+        <td>8</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Movimientos de Caja (Efectivo)</td>
+        <td>IMP</td>
+        <td>Contabilidad (Bancos y Caja)</td>
+        <td>Registro de transacciones en efectivo</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Movimientos Bancarios</td>
+        <td>IMP</td>
+        <td>Contabilidad (Bancos y Caja)</td>
+        <td>Conciliación bancaria</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pago a Proveedores</td>
+        <td>IMP</td>
+        <td>VRM (Pago por transferencia bancaria)</td>
+        <td>Gestión de pagos a proveedores</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cartera Cheques</td>
+        <td>IMP</td>
+        <td>Contabilidad (Bancos y Caja)</td>
+        <td>Trazabilidad de cheques</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Movimientos de Stock</td>
+        <td>IMP</td>
+        <td>PM (Stocks de productos)</td>
+        <td>Control de inventario entre depósitos</td>
+        <td>4</td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="highlight">
+    <p><strong>Total horas:</strong> 135</p>
+    <p><strong>Enfoque:</strong> Mayor tiempo en módulos base para reducir los tiempos de la curva de aprendizaje.</p>
+</div>
+
+<h2>3. Planificación Python/Odoo</h2>
+
+<table>
+    <tr>
+        <th>Descripción de la Tarea</th>
+        <th>Tipo</th>
+        <th>Módulo Odoo</th>
+        <th>Submódulo/Funcionalidad</th>
+        <th>Horas</th>
+        <th>Comentarios</th>
+    </tr>
+    <tr>
+        <td>Configuración Inicial Odoo</td>
+        <td>CORE</td>
+        <td>base</td>
+        <td>Personalización inicial</td>
+        <td>10</td>
+        <td>Docker, módulos base</td>
+    </tr>
+    <tr>
+        <td>Archivo de Clientes/Distribuidores</td>
+        <td>INT</td>
+        <td>res.partner</td>
+        <td>Campos personalizados</td>
+        <td>12</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivo de Proveedores</td>
+        <td>IMP</td>
+        <td>purchase</td>
+        <td>Categorización</td>
+        <td>8</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivos de Rubros</td>
+        <td>IMP</td>
+        <td>product.category</td>
+        <td>Jerarquía equipos</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivo de Marcas</td>
+        <td>IMP</td>
+        <td>product.brand</td>
+        <td>Gestión marcas</td>
+        <td>4</td>
+        <td>Módulo instalable</td>
+    </tr>
+    <tr>
+        <td>Depósitos Stock</td>
+        <td>IMP</td>
+        <td>stock.warehouse</td>
+        <td>Ubicaciones médicas</td>
+        <td>10</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Archivo de Productos</td>
+        <td>INT</td>
+        <td>product.template</td>
+        <td>Especificaciones técnicas</td>
+        <td>16</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Comprobantes Compras</td>
+        <td>IMP</td>
+        <td>account.move</td>
+        <td>Facturas proveedores</td>
+        <td>12</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Libros IVA Compras</td>
+        <td>IMP</td>
+        <td>l10n_ar_reports</td>
+        <td>Regulaciones médicas</td>
+        <td>10</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Generación txt Compras</td>
+        <td>IMP</td>
+        <td>l10n_ar_afipws</td>
+        <td>Exportación</td>
+        <td>8</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Órdenes Compra</td>
+        <td>IMP</td>
+        <td>purchase.order</td>
+        <td>Flujo aprobación</td>
+        <td>8</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Recepción Componentes</td>
+        <td>IMP</td>
+        <td>stock.picking</td>
+        <td>Control calidad</td>
+        <td>7</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Devoluciones</td>
+        <td>IMP</td>
+        <td>stock.return</td>
+        <td>Trazabilidad</td>
+        <td>6</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Entrega Materiales</td>
+        <td>IMP</td>
+        <td>stock.picking</td>
+        <td>Kits médicos</td>
+        <td>7</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Presupuestos</td>
+        <td>LISTO</td>
+        <td>sale.order</td>
+        <td>Plantillas médicas</td>
+        <td>6</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pedidos</td>
+        <td>LISTO</td>
+        <td>sale.order.line</td>
+        <td>Restricciones</td>
+        <td>7</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>R.M.A.</td>
+        <td>LISTO</td>
+        <td>repair.order</td>
+        <td>Garantías extendidas</td>
+        <td>9</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Remitos</td>
+        <td>IMP</td>
+        <td>stock.picking</td>
+        <td>Formatos médicos</td>
+        <td>9</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Facturación Afip</td>
+        <td>IMP</td>
+        <td>l10n_ar_afipws</td>
+        <td>Facturación electrónica</td>
+        <td>16</td>
+        <td>Integración disponible</td>
+    </tr>
+    <tr>
+        <td>Generación txt Ventas</td>
+        <td>IMP</td>
+        <td>l10n_ar_reports</td>
+        <td>Libro IVA digital</td>
+        <td>10</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Libros IVA Ventas</td>
+        <td>IMP</td>
+        <td>account</td>
+        <td>Reportes fiscales</td>
+        <td>10</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Movimientos Caja</td>
+        <td>IMP</td>
+        <td>account.bank.statement</td>
+        <td>Control efectivo</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Conciliación Bancaria</td>
+        <td>IMP</td>
+        <td>account</td>
+        <td>Extractos</td>
+        <td>6</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Pagos Proveedores</td>
+        <td>IMP</td>
+        <td>account.payment</td>
+        <td>Flujo autorización</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Cartera Cheques</td>
+        <td>IMP</td>
+        <td>account</td>
+        <td>Gestión cheques</td>
+        <td>6</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Movimientos Stock</td>
+        <td>IMP</td>
+        <td>stock.move</td>
+        <td>Trazabilidad</td>
+        <td>5</td>
+        <td></td>
+    </tr>
+</table>
+
+<div class="highlight">
+    <p><strong>Total horas:</strong> 176</p>
+    <p><strong>Enfoque:</strong> Uso de módulos nativos desarrollados para Argentina.</p>
+</div>
+
+<h2>5. Recursos Consultados</h2>
+<ul>
+    <li><a href="https://www.dolibarr.org/documentation">Documentación Dolibarr</a></li>
+    <li><a href="https://www.odoo.com/documentation">Documentación Odoo</a></li>
+</ul>
+
+</body>
+</html>

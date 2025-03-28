@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  dolibarr:
+    image: dolibarr/dolibarr:latest  
+    ports:
+      - "9000:80"
+    environment:
+      - DOLI_DB_HOST=mariadb
+      - DOLI_DB_USER=dolibarr
+      - DOLI_DB_PASSWORD=dolibarr
+      - DOLI_DB_NAME=dolibarr
+    volumes:
+      - dolibarr_data:/var/www/html/documents
+    depends_on:
+      mariadb:
+        condition: service_healthy
+
+  mariadb:
+    image: mariadb:10.11 
+    environment:
+      - MYSQL_ROOT_PASSWORD=Sa0Sp.@13u
+      - MYSQL_DATABASE=softweare_dolib91
+      - MYSQL_USER=softweare_dolib91
+      - MYSQL_PASSWORD=Sa0Sp.@13u
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    volumes:
+      - db_data:/var/lib/mysql
+
+volumes:
+  dolibarr_data:
+  db_data:
